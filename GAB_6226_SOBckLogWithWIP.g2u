@@ -1,0 +1,896 @@
+﻿Program.Sub.ScreenSU.Start
+Gui.frmSalesReq..Create(DashForm)
+Gui.frmSalesReq..Caption("Open Orders with Requirements by Week")
+Gui.frmSalesReq..Size(1024,720)
+Gui.frmSalesReq..MinX(0)
+Gui.frmSalesReq..MinY(0)
+Gui.frmSalesReq..Position(0,0)
+Gui.frmSalesReq..AlwaysOnTop(False)
+Gui.frmSalesReq..FontName("Tahoma")
+Gui.frmSalesReq..FontSize(8.25)
+Gui.frmSalesReq..ControlBox(True)
+Gui.frmSalesReq..MaxButton(True)
+Gui.frmSalesReq..MinButton(True)
+Gui.frmSalesReq..MousePointer(0)
+Gui.frmSalesReq..Moveable(True)
+Gui.frmSalesReq..Sizeable(True)
+Gui.frmSalesReq..ShowInTaskBar(True)
+Gui.frmSalesReq..TitleBar(True)
+Gui.frmSalesReq..Event(UnLoad,frmSalesReq_UnLoad)
+Gui.frmSalesReq..Event(ExportClick,frmSalesReq_ExportClick)
+Gui.frmSalesReq..Event(RefreshClick,frmSalesReq_RefreshClick)
+Gui.frmSalesReq..BarExportButton(True)
+Gui.frmSalesReq..BarRefreshButton(True)
+Gui.frmSalesReq.GSGCSalesReq.Create(GsGridControl)
+Gui.frmSalesReq.GSGCSalesReq.Enabled(True)
+Gui.frmSalesReq.GSGCSalesReq.Visible(True)
+Gui.frmSalesReq.GSGCSalesReq.Zorder(0)
+Gui.frmSalesReq.GSGCSalesReq.Size(1024,647)
+Gui.frmSalesReq.GSGCSalesReq.Position(0,0)
+Gui.frmSalesReq.GSGCSalesReq.Dock(5)
+Gui.frmSalesReq.GSGCSalesReq.Event(RowCellClick,GSGCSalesReq_RowCellClick)
+Gui.frmSalesReq.chkSetColors.Create(CheckBox)
+Gui.frmSalesReq.chkSetColors.Enabled(True)
+Gui.frmSalesReq.chkSetColors.Visible(True)
+Gui.frmSalesReq.chkSetColors.Zorder(0)
+Gui.frmSalesReq.chkSetColors.Size(145,24)
+Gui.frmSalesReq.chkSetColors.Position(877,0)
+Gui.frmSalesReq.chkSetColors.Caption("On Order vs On Hand Visual")
+Gui.frmSalesReq.chkSetColors.FontName("Tahoma")
+Gui.frmSalesReq.chkSetColors.FontSize(7.8)
+Gui.frmSalesReq.chkSetColors.Alignment(1)
+Gui.frmSalesReq.chkSetColors.Anchor(9)
+Gui.frmSalesReq.chkSetColors.Event(Click,chkSetColors_Click)
+Gui.frmActiveJobs..Create(DashForm)
+Gui.frmActiveJobs..Caption("Active Jobs")
+Gui.frmActiveJobs..Size(1282,707)
+Gui.frmActiveJobs..MinX(0)
+Gui.frmActiveJobs..MinY(0)
+Gui.frmActiveJobs..Position(0,0)
+Gui.frmActiveJobs..BackColor(-2147483633)
+Gui.frmActiveJobs..MousePointer(0)
+Gui.frmActiveJobs..Event(UnLoad,frmActiveJobs_UnLoad)
+Gui.frmActiveJobs..AlwaysOnTop(False)
+Gui.frmActiveJobs..FontName("Tahoma")
+Gui.frmActiveJobs..FontSize(8.25)
+Gui.frmActiveJobs..ControlBox(True)
+Gui.frmActiveJobs..MaxButton(True)
+Gui.frmActiveJobs..MinButton(True)
+Gui.frmActiveJobs..Moveable(True)
+Gui.frmActiveJobs..Sizeable(True)
+Gui.frmActiveJobs..ShowInTaskBar(True)
+Gui.frmActiveJobs..TitleBar(True)
+Gui.frmActiveJobs..BarExportButton(True)
+Gui.frmActiveJobs..BarRefreshButton(False)
+Gui.frmActiveJobs..Event(ExportClick,frmActiveJobs_ExportClick)
+Gui.frmActiveJobs.GSGCActiveJobs.Create(GsGridControl)
+Gui.frmActiveJobs.GSGCActiveJobs.Size(1279,585)
+Gui.frmActiveJobs.GSGCActiveJobs.Position(2,43)
+Gui.frmActiveJobs.GSGCActiveJobs.Event(RowCellClick,GSGCActiveJobs_RowCellClick)
+Gui.frmActiveJobs.GSGCActiveJobs.Event(CellValueChanged,GsGCActiveJobs_CellValueChanged)
+Gui.frmActiveJobs.GSGCActiveJobs.Enabled(True)
+Gui.frmActiveJobs.GSGCActiveJobs.Visible(True)
+Gui.frmActiveJobs.GSGCActiveJobs.Zorder(0)
+Gui.frmActiveJobs.lblStatus.Create(Label,"Loading Work Orders....",False,139,16,0,6,7,True,0,"Arial",8,-2147483633,0,0)
+Gui.frmActiveJobs.lblStatus.BorderStyle(0)
+Gui.frmActiveJobs.optView.Create(Option)
+Gui.frmActiveJobs.optView.Size(69,18)
+Gui.frmActiveJobs.optView.Position(1212,4)
+Gui.frmActiveJobs.optView.Caption("View")
+Gui.frmActiveJobs.optView.BackColor(15790320)
+Gui.frmActiveJobs.optView.ForeColor(0)
+Gui.frmActiveJobs.optView.Enabled(True)
+Gui.frmActiveJobs.optView.Visible(True)
+Gui.frmActiveJobs.optView.Zorder(0)
+Gui.frmActiveJobs.optView.FontName("Tahoma")
+Gui.frmActiveJobs.optView.FontSize(8.25)
+Gui.frmActiveJobs.optEdit.Create(Option)
+Gui.frmActiveJobs.optEdit.Enabled(False)
+Gui.frmActiveJobs.optEdit.Size(63,19)
+Gui.frmActiveJobs.optEdit.Position(1212,23)
+Gui.frmActiveJobs.optEdit.Caption("Edit")
+Gui.frmActiveJobs.optEdit.Visible(True)
+Gui.frmActiveJobs.optEdit.Zorder(0)
+Gui.frmActiveJobs.optEdit.FontName("Tahoma")
+Gui.frmActiveJobs.optEdit.FontSize(8.25)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+	V.Global.bLoadDataMain.Declare
+	V.Global.bLoadDataActiveJobs.Declare
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+	F.Intrinsic.UI.UsePixels ' Allows you to use Pixels instead of Twips throughout
+	
+	V.Local.bEdit.Declare
+	
+	'Open ODBC Connection
+	F.ODBC.Connection!con.OpenCompanyConnection(999)
+	
+	F.Intrinsic.Control.CallSub(SetContextMenusMain)
+	
+	F.Intrinsic.Control.BlockEvents
+	F.Intrinsic.Control.CallSub(SetAnchorsActiveJobs)
+	F.Intrinsic.Control.CallSub(CheckSetColorsOpt)
+	F.Intrinsic.Control.CallSub(SetContextMenusActiveJobs)
+	'F.Intrinsic.Control.CallSub(frmSalesReq_RefreshClick)
+	F.Intrinsic.Control.UnBlockEvents
+	
+	Gui.frmActiveJobs.optView.Value(True)
+
+	F.Global.Security.IsInGroup(V.Caller.User,"EditWO",v.Local.bEdit)
+	F.Intrinsic.Control.If(V.Local.bEdit)
+		Gui.frmActiveJobs.optEdit.Enabled(1)
+	F.Intrinsic.Control.EndIf
+
+	Gui.frmSalesReq..Show
+Program.Sub.Main.End
+
+Program.Sub.frmSalesReq_UnLoad.Start
+	F.Intrinsic.Control.End
+Program.Sub.frmSalesReq_UnLoad.End
+
+Program.Sub.SetContextMenusMain.Start
+	Gui.frmSalesReq..ContextMenuCreate("ctxSalesReq")
+	Gui.frmSalesReq.GSGCSalesReq.ContextMenuAttach("ctxSalesReq")
+	Gui.frmSalesReq..ContextMenuAddItem("ctxSalesReq","ResetColumns",0,"Reset Columns")
+	Gui.frmSalesReq..ContextMenuSetItemEventHandler("ctxSalesReq","ResetColumns","ResetGridColumnsMain")
+Program.Sub.SetContextMenusMain.End
+
+Program.Sub.ResetGridColumnsMain.Start
+	F.Intrinsic.Control.SelectCase(V.Args.MenuName)
+		F.Intrinsic.Control.Case("CTXSALESREQ")
+			F.Global.Registry.AddValue(V.Caller.User,V.Caller.CompanyCode,"GVSALESREQ",6226,1000,False,"Serialize",False,0,-999.0,1/1/1980,12:00:00 AM,"")
+			
+	F.Intrinsic.Control.EndSelect
+	
+	V.Global.bLoadDataMain.Set(False)
+	F.Intrinsic.Control.CallSub(frmSalesReq_RefreshClick)
+Program.Sub.ResetGridColumnsMain.End
+
+Program.Sub.frmSalesReq_ExportClick.Start
+	V.Local.bExcel.Declare
+	V.Local.sExt.Declare
+	V.Local.sFileExport.Declare
+	V.Local.bFileLocked.Declare
+	V.Local.sMsg.Declare
+	
+	F.Intrinsic.Control.If(V.Global.bLoadDataMain)
+		F.Automation.MSExcel.CheckPresence(V.Local.bExcel)
+		F.Intrinsic.Control.If(V.Local.bExcel)
+			V.Local.sExt.Set("xlsx")
+		F.Intrinsic.Control.Else
+			V.Local.sExt.Set("csv")
+		F.Intrinsic.Control.EndIf
+		
+		F.Intrinsic.String.Build("{0}GAB_6226_SalesReq_Export.{1}",V.Caller.LocalGssTempDir,V.Local.sExt,V.Local.sFileExport)
+		F.Intrinsic.File.IsFileLocked(V.Local.sFileExport,V.Local.bFileLocked)
+		F.Intrinsic.Control.If(V.Local.bFileLocked)
+			F.Intrinsic.String.Build("File is already open. Please close and export again.{0}File: {1}",V.Ambient.NewLine,V.Local.sFileExport,V.Local.sMsg)
+			F.Intrinsic.UI.Msgbox(V.Local.sMsg,"File In Use")
+		F.Intrinsic.Control.Else
+			Gui.frmSalesReq.GSGCSalesReq.Export(V.Local.sFileExport,V.Local.sExt)
+			F.Intrinsic.Task.ShellExec(0,"",V.Local.sFileExport,"","",1)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+Program.Sub.frmSalesReq_ExportClick.End
+
+Program.Sub.frmSalesReq_RefreshClick.Start
+	F.Intrinsic.Control.If(V.Global.bLoadDataMain)
+		F.Intrinsic.Control.CallSub(SerializeMain)
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.UI.InvokeWaitDialog("Initilizing Data....","Loading Dashboard")
+	
+	F.Intrinsic.Control.CallSub(LoadDtSalesReq)
+	F.Intrinsic.Control.CallSub(DeserializeMain)
+	
+	F.Intrinsic.UI.CloseWaitDialog
+Program.Sub.frmSalesReq_RefreshClick.End
+
+Program.Sub.LoadDtSalesReq.Start
+	V.Local.iCnt.Declare
+	V.Local.iCnt2.Declare
+	V.Local.dBegWeek.Declare
+	V.Local.dEndWeek.Declare
+	V.Local.sWeek.Declare
+	V.Local.sMMDDYY.Declare
+	V.Local.sColumn.Declare
+	V.Local.sFilter.Declare
+	V.Local.fBOQty.Declare
+	V.Local.iRow.Declare
+	
+	F.Intrinsic.Control.If(v.DataTable.dtSalesReq.Exists)
+		F.Data.DataTable.close("dtSalesReq")
+		F.Data.DataTable.close("dtBO")
+	F.Intrinsic.Control.EndIf
+	
+	V.Global.bLoadDataMain.Set(True)
+	
+	'Create DataTable for Sales Req
+	F.Intrinsic.UI.ChangeWaitStatus("Retrieving Sales Requirements....")
+	F.Data.DataTable.CreateFromSQL("dtSalesReq0","con","Select Qty_OnHand As FG,Qty_OnOrder_WO As OnWO,0.0 As WIP,Part,Location,RTrim(Part+Location) As PartLoc, '' As SOPartLoc From V_Inventory_Mstr;",True)
+	
+	'Set WIP
+	F.Intrinsic.UI.ChangeWaitStatus("Loading WIP Data....")
+'   RRC 120321 (by Mike)
+'	F.Data.Dictionary.CreateFromSQL("dicWIP","con","Select RTrim(Part+Location) As PartLoc, Sum(Qty_Customer-Qty_Completed) As Qty From V_Job_Header Where Num_Hours > 0 Group By Part, Location;")
+	F.Data.Dictionary.CreateFromSQL("dicWIP","con","Select RTrim(Part+Location) As PartLoc, Sum(Qty_Order-Qty_Completed) As Qty From V_Job_Header Where (Amt_Material+Amt_Labor+AMT_Overhead) > 0 Group By Part, Location;")
+	F.Data.Dictionary.SetDefaultReturn("dicWIP",0)
+	F.Data.DataTable.FillFromDictionary("dtSalesReq0","dicWIP","PartLoc","WIP")
+	F.Data.Dictionary.Close("dicWIP")
+	
+	'Filter out Parts that are not on Open Orders
+	F.Intrinsic.UI.ChangeWaitStatus("Filtering Data....")
+	F.Data.Dictionary.CreateFromSQL("dicSO","con","Select RTrim(Part+Location) As PartLoc,RTrim(Part+Location) As SOPartLoc From V_Order_Lines;")
+	F.Data.Dictionary.SetDefaultReturn("dicSO","")
+	F.Data.DataTable.FillFromDictionary("dtSalesReq0","dicSO","PartLoc","SOPartLoc")
+	F.Data.Dictionary.Close("dicSO")
+	
+	'Create New DataTable for Sales Req
+	F.Intrinsic.UI.ChangeWaitStatus("Loading Sales Requirements....")
+	F.Data.DataView.Create("dtSalesReq0","dvSalesReq0",22,"SOPartLoc <> ''","")
+	F.Data.DataView.ToDataTable("dtSalesReq0","dvSalesReq0","dtSalesReq",True)
+	F.Data.DataTable.Close("dtSalesReq0")
+	
+	'Create DataTable for Back Order Qty
+	F.Intrinsic.UI.ChangeWaitStatus("Retrieving Back Order Data....")
+	F.Data.DataTable.CreateFromSQL("dtBO","con","Select RTrim(Part+Location) As PartLoc, Part, Location, Case When ol.Flag_Use_MQD <> 'Y' Then ol.Qty_BO When ol.Flag_Use_MQD = 'Y' And ss.Flag_Closed <> 'Y' Then ss.Qty_Open When ol.Flag_Use_MQD = 'Y' And ss.Flag_Closed = 'Y' Then 0 End As Qty_BO, Case When ol.Flag_Use_MQD <> 'Y' Then If(ol.Date_Item_Prom = '1900-01-01', Convert(Null, Sql_Date),ol.Date_Item_Prom) When ol.Flag_Use_MQD = 'Y' Then If(ss.Date_Due = '1900-01-01',Convert('9999-12-31',Sql_Date),ss.Date_Due) End As Date_Item_Prom From V_Order_Lines ol Left Join V_OE_Ship_Sched ss On ol.Order_No = ss.Order_No And ol.Record_No = ss.Order_Line;",True)
+	
+	'Set BO Qty Columns------------------------------------------------------------------------------------
+	F.Intrinsic.UI.ChangeWaitStatus("Loading Back Order Data....")
+	'Set Dates
+	F.Intrinsic.Date.BeginningOfWeek(V.Ambient.Date,V.Local.dBegWeek)
+	F.Intrinsic.Date.EndOfWeek(V.Ambient.Date,V.Local.dEndWeek)
+
+	'Add Past Column and Data
+	V.Local.sColumn.Set("Past")
+	F.Data.DataTable.AddColumn("dtSalesReq",V.Local.sColumn,Long)
+	F.Intrinsic.Control.For(V.Local.iCnt,0, V.DataTable.dtSalesReq.RowCount--,1)
+		V.Local.fBOQty.Set(0)
+		F.Intrinsic.String.Build("PartLoc = '{0}' And Date_Item_Prom < #{1}#",V.DataTable.dtSalesReq(V.Local.iCnt).PartLoc!FieldValTrim,V.Local.dBegWeek,V.Local.sFilter)
+		F.Data.DataTable.Compute("dtBO","SUM(Qty_BO)",V.Local.sFilter,V.Local.fBOQty)
+		F.Intrinsic.String.Build("PartLoc = '{0}'",V.DataTable.dtSalesReq(V.Local.iCnt).PartLoc!FieldValTrim,V.Local.sFilter)
+		F.Data.DataTable.Select("dtSalesReq",V.Local.sFilter,V.Local.iRow)
+		F.Data.DataTable.SetValue("dtSalesReq",V.Local.iRow,V.Local.sColumn,V.Local.fBOQty)
+	F.Intrinsic.Control.Next(V.Local.iCnt)
+	
+	'Add BO Columns and Data
+	F.Intrinsic.Control.For(V.Local.iCnt,0,9,1)
+		'Set Dates
+		F.Intrinsic.Control.If(V.Local.iCnt,<>,0)
+			F.Intrinsic.Date.DateAdd("Ww",1,V.Local.dBegWeek,V.Local.dBegWeek)
+			F.Intrinsic.Date.DateAdd("Ww",1,V.Local.dEndWeek,V.Local.dEndWeek)
+		F.Intrinsic.Control.EndIf
+		'Get Week Number of Year
+		F.Intrinsic.String.Format(V.Local.dBegWeek,"Ww",1,1,V.Local.sWeek)
+		F.Intrinsic.Control.If(V.Local.sWeek,=,"53")
+			V.Local.sWeek.Set("53/1")
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.String.Format(V.Local.dBegWeek,"MM/DD/YY",V.Local.sMMDDYY)
+		F.Intrinsic.String.Build("Wk{0}{2}{1}",V.Local.sWeek,V.Local.sMMDDYY,V.Ambient.NewLine,V.Local.sColumn)
+		'Add Column
+		F.Data.DataTable.AddColumn("dtSalesReq",V.Local.iCnt,Long)
+		'Loop through list of Parts
+		F.Intrinsic.Control.For(V.Local.iCnt2,0, V.DataTable.dtSalesReq.RowCount--,1)
+			V.Local.fBOQty.Set(0)
+			F.Intrinsic.String.Build("PartLoc = '{0}' And Date_Item_Prom >= #{1}# And Date_Item_Prom <= #{2}#",V.DataTable.dtSalesReq(V.Local.iCnt2).PartLoc!FieldValTrim,V.Local.dBegWeek,V.Local.dEndWeek,V.Local.sFilter)
+			F.Data.DataTable.Compute("dtBO","SUM(Qty_BO)",V.Local.sFilter,V.Local.fBOQty)
+			F.Intrinsic.String.Build("PartLoc = '{0}'",V.DataTable.dtSalesReq(V.Local.iCnt2).PartLoc!FieldValTrim,V.Local.sFilter)
+			F.Data.DataTable.Select("dtSalesReq",V.Local.sFilter,V.Local.iRow)
+			F.Data.DataTable.SetValue("dtSalesReq",V.Local.iRow,V.Local.iCnt,V.Local.fBOQty)
+		F.Intrinsic.Control.Next(V.Local.iCnt2)
+	F.Intrinsic.Control.Next(V.Local.iCnt)
+
+	'Add Future Column and Data
+	F.Intrinsic.UI.ChangeWaitStatus("Loading Back Order Data......")
+	V.Local.sColumn.Set("Future")
+	F.Data.DataTable.AddColumn("dtSalesReq",V.Local.sColumn,Long)
+	F.Intrinsic.Control.For(V.Local.iCnt,0, V.DataTable.dtSalesReq.RowCount--,1)
+		V.Local.fBOQty.Set(0)
+		F.Intrinsic.String.Build("PartLoc = '{0}' And Date_Item_Prom > #{1}#",V.DataTable.dtSalesReq(V.Local.iCnt).PartLoc!FieldValTrim,V.Local.dBegWeek,V.Local.sFilter)
+		F.Data.DataTable.Compute("dtBO","SUM(Qty_BO)",V.Local.sFilter,V.Local.fBOQty)
+		F.Intrinsic.String.Build("PartLoc = '{0}'",V.DataTable.dtSalesReq(V.Local.iCnt).PartLoc!FieldValTrim,V.Local.sFilter)
+		F.Data.DataTable.Select("dtSalesReq",V.Local.sFilter,V.Local.iRow)
+		F.Data.DataTable.SetValue("dtSalesReq",V.Local.iRow,V.Local.sColumn,V.Local.fBOQty)
+	F.Intrinsic.Control.Next(V.Local.iCnt)
+	
+	'Remove Columns
+	F.Data.DataTable.RemoveColumn("dtSalesReq","PartLoc")
+	F.Data.DataTable.RemoveColumn("dtSalesReq","SOPartLoc")
+	
+	'Load and Format GridView
+	F.Intrinsic.UI.ChangeWaitStatus("Formatting Grid....")
+	F.Intrinsic.Control.CallSub(LoadGvSalesReq)
+	F.Intrinsic.UI.ChangeWaitStatus("Complete!")
+Program.Sub.LoadDtSalesReq.End
+
+Program.Sub.LoadGvSalesReq.Start
+	V.Local.iCnt.Declare
+	V.Local.sColumn.Declare
+	V.Local.dBegWeek.Declare
+	V.Local.dEndWeek.Declare
+	V.Local.sWeek.Declare
+	V.Local.sMMDDYY.Declare
+	
+	Gui.frmSalesReq.GSGCSalesReq.AddGridViewFromDataTable("gvSalesReq","dtSalesReq")
+	Gui.frmSalesReq.GSGCSalesReq.SuspendLayout()
+	Gui.frmSalesReq.GSGCSalesReq.SetGridViewProperty("gvSalesReq","MultiSelect",True)
+	Gui.frmSalesReq.GSGCSalesReq.SetGridViewProperty("gvSalesReq","Editable",False)
+	Gui.frmSalesReq.GSGCSalesReq.SetGridViewProperty("gvSalesReq","AllowSort",True)
+	Gui.frmSalesReq.GSGCSalesReq.SetGridViewProperty("gvSalesReq","AllowFilter",True)
+	Gui.frmSalesReq.GSGCSalesReq.SetGridViewProperty("gvSalesReq","OptionsDetailShowDetailTabs",False)
+	Gui.frmSalesReq.GSGCSalesReq.SetGridViewProperty("gvSalesReq","OptionsViewShowGroupPanel",True)
+	Gui.frmSalesReq.GSGCSalesReq.SetGridViewProperty("gvSalesReq","OptionsViewColumnAutoWidth",True)
+	Gui.frmSalesReq.GSGCSalesReq.SetGridviewProperty("gvSalesReq","ColumnPanelRowHeight",50)
+	
+	'Loop through columns names by using the V.DataTable.dtName.FieldNames
+	F.Intrinsic.String.Split(V.DataTable.dtSalesReq.FieldNames,"*!*",V.Local.sColumn)
+	F.Intrinsic.Control.For(V.Local.iCnt,0,V.Local.sColumn.UBound,1)
+		Gui.frmSalesReq.GSGCSalesReq.SetColumnProperty("gvSalesReq",V.Local.sColumn(V.Local.iCnt),"HeaderFontBold",True)
+	F.Intrinsic.Control.Next(V.Local.iCnt)
+	
+	'FG
+	V.Local.sColumn.Set("FG")
+	Gui.frmSalesReq.GSGCSalesReq.SetColumnProperty("gvSalesReq",V.Local.sColumn,"Caption",V.Local.sColumn)
+	Gui.frmSalesReq.GSGCSalesReq.SetColumnProperty("gvSalesReq",V.Local.sColumn,"MinWidth","85")
+	Gui.frmSalesReq.GSGCSalesReq.SetColumnProperty("gvSalesReq",V.Local.sColumn,"HeaderHAlignment","Center")
+	Gui.frmSalesReq.GSGCSalesReq.SetColumnProperty("gvSalesReq",V.Local.sColumn,"CellHAlignment","Far")
+	Gui.frmSalesReq.GSGCSalesReq.SetColumnProperty("gvSalesReq",V.Local.sColumn,"DisplayCustomNumeric","n2")
+	
+	'OnWO
+	V.Local.sColumn.Set("OnWO")
+	Gui.frmSalesReq.GSGCSalesReq.SetColumnProperty("gvSalesReq",V.Local.sColumn,"Caption","On WO")
+	Gui.frmSalesReq.GSGCSalesReq.SetColumnProperty("gvSalesReq",V.Local.sColumn,"MinWidth","85")
+	Gui.frmSalesReq.GSGCSalesReq.SetColumnProperty("gvSalesReq",V.Local.sColumn,"HeaderHAlignment","Center")
+	Gui.frmSalesReq.GSGCSalesReq.SetColumnProperty("gvSalesReq",V.Local.sColumn,"CellHAlignment","Far")
+	Gui.frmSalesReq.GSGCSalesReq.SetColumnProperty("gvSalesReq",V.Local.sColumn,"DisplayCustomNumeric","n2")
+	
+	'WIP
+	V.Local.sColumn.Set("WIP")
+	Gui.frmSalesReq.GSGCSalesReq.SetColumnProperty("gvSalesReq",V.Local.sColumn,"Caption",V.Local.sColumn)
+	Gui.frmSalesReq.GSGCSalesReq.SetColumnProperty("gvSalesReq",V.Local.sColumn,"MinWidth","85")
+	Gui.frmSalesReq.GSGCSalesReq.SetColumnProperty("gvSalesReq",V.Local.sColumn,"HeaderHAlignment","Center")
+	Gui.frmSalesReq.GSGCSalesReq.SetColumnProperty("gvSalesReq",V.Local.sColumn,"CellHAlignment","Far")
+	Gui.frmSalesReq.GSGCSalesReq.SetColumnProperty("gvSalesReq",V.Local.sColumn,"DisplayCustomNumeric","n2")
+	Gui.frmSalesReq.GSGCSalesReq.SetColumnProperty("gvSalesReq",V.Local.sColumn,"IsHyperlink",True)
+	
+	'Part
+	V.Local.sColumn.Set("Part")
+	Gui.frmSalesReq.GSGCSalesReq.SetColumnProperty("gvSalesReq",V.Local.sColumn,"Caption",V.Local.sColumn)
+	Gui.frmSalesReq.GSGCSalesReq.SetColumnProperty("gvSalesReq",V.Local.sColumn,"MinWidth","175")
+	Gui.frmSalesReq.GSGCSalesReq.SetColumnProperty("gvSalesReq",V.Local.sColumn,"HeaderHAlignment","Center")
+	Gui.frmSalesReq.GSGCSalesReq.SetColumnProperty("gvSalesReq",V.Local.sColumn,"CellHAlignment","Left")
+	
+	'Location
+	V.Local.sColumn.Set("Location")
+	Gui.frmSalesReq.GSGCSalesReq.SetColumnProperty("gvSalesReq",V.Local.sColumn,"Caption","Loc")
+	Gui.frmSalesReq.GSGCSalesReq.SetColumnProperty("gvSalesReq",V.Local.sColumn,"MinWidth","45")
+	Gui.frmSalesReq.GSGCSalesReq.SetColumnProperty("gvSalesReq",V.Local.sColumn,"HeaderHAlignment","Center")
+	Gui.frmSalesReq.GSGCSalesReq.SetColumnProperty("gvSalesReq",V.Local.sColumn,"CellHAlignment","Left")
+	
+	'Past
+	V.Local.sColumn.Set("Past")
+	Gui.frmSalesReq.GSGCSalesReq.SetColumnProperty("gvSalesReq",V.Local.sColumn,"Caption",V.Local.sColumn)
+	Gui.frmSalesReq.GSGCSalesReq.SetColumnProperty("gvSalesReq",V.Local.sColumn,"MinWidth","85")
+	Gui.frmSalesReq.GSGCSalesReq.SetColumnProperty("gvSalesReq",V.Local.sColumn,"HeaderHAlignment","Center")
+	Gui.frmSalesReq.GSGCSalesReq.SetColumnProperty("gvSalesReq",V.Local.sColumn,"CellHAlignment","Far")
+	Gui.frmSalesReq.GSGCSalesReq.SetColumnProperty("gvSalesReq",V.Local.sColumn,"DisplayCustomNumeric","n2")
+	
+	'BO Columns
+	F.Intrinsic.Date.BeginningOfWeek(V.Ambient.Date,V.Local.dBegWeek)
+	F.Intrinsic.Date.EndOfWeek(V.Ambient.Date,V.Local.dEndWeek)
+	F.Intrinsic.Control.For(V.Local.iCnt,0,9,1)
+		'Set Dates
+		F.Intrinsic.Control.If(V.Local.iCnt,<>,0)
+			F.Intrinsic.Date.DateAdd("Ww",1,V.Local.dBegWeek,V.Local.dBegWeek)
+			F.Intrinsic.Date.DateAdd("Ww",1,V.Local.dEndWeek,V.Local.dEndWeek)
+		F.Intrinsic.Control.EndIf
+		'Get Week Number of Year
+		F.Intrinsic.String.Format(V.Local.dBegWeek,"Ww",1,1,V.Local.sWeek)
+		F.Intrinsic.Control.If(V.Local.sWeek,=,"53")
+			V.Local.sWeek.Set("53/1")
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.String.Format(V.Local.dBegWeek,"MM/DD/YY",V.Local.sMMDDYY)
+		F.Intrinsic.String.Build("Wk{0}{2}{1}",V.Local.sWeek,V.Local.sMMDDYY,V.Ambient.NewLine,V.Local.sColumn)
+		'Format Column
+		Gui.frmSalesReq.GSGCSalesReq.SetColumnProperty("gvSalesReq",V.Local.iCnt,"Caption",V.Local.sColumn)
+		Gui.frmSalesReq.GSGCSalesReq.SetColumnProperty("gvSalesReq",V.Local.iCnt,"MinWidth","85")
+		Gui.frmSalesReq.GSGCSalesReq.SetColumnProperty("gvSalesReq",V.Local.iCnt,"HeaderHAlignment","Center")
+		Gui.frmSalesReq.GSGCSalesReq.SetColumnProperty("gvSalesReq",V.Local.iCnt,"CellHAlignment","Far")
+		Gui.frmSalesReq.GSGCSalesReq.SetColumnProperty("gvSalesReq",V.Local.iCnt,"DisplayCustomNumeric","n2")
+	F.Intrinsic.Control.Next(V.Local.iCnt)
+	
+	'Future
+	V.Local.sColumn.Set("Future")
+	Gui.frmSalesReq.GSGCSalesReq.SetColumnProperty("gvSalesReq",V.Local.sColumn,"Caption",V.Local.sColumn)
+	Gui.frmSalesReq.GSGCSalesReq.SetColumnProperty("gvSalesReq",V.Local.sColumn,"MinWidth","85")
+	Gui.frmSalesReq.GSGCSalesReq.SetColumnProperty("gvSalesReq",V.Local.sColumn,"HeaderHAlignment","Center")
+	Gui.frmSalesReq.GSGCSalesReq.SetColumnProperty("gvSalesReq",V.Local.sColumn,"CellHAlignment","Far")
+	Gui.frmSalesReq.GSGCSalesReq.SetColumnProperty("gvSalesReq",V.Local.sColumn,"DisplayCustomNumeric","n2")
+	
+	'Set Total Colors
+	F.Intrinsic.Control.If(V.Screen.frmSalesReq!chkSetColors.Value,=,1)
+		F.Intrinsic.Control.CallSub(SetTotalColors)
+	F.Intrinsic.Control.EndIf
+
+	Gui.frmSalesReq.GSGCSalesReq.ResumeLayout()
+	Gui.frmSalesReq.GSGCSalesReq.MainView("gvSalesReq")
+Program.Sub.LoadGvSalesReq.End
+
+Program.Sub.SetTotalColors.Start
+	V.Local.iCnt.Declare
+	V.Local.iCnt2.Declare
+	V.Local.iColumn.Declare
+	V.Local.fPrevQty.Declare
+	
+	F.Intrinsic.Control.For(V.Local.iCnt,0,V.DataTable.dtSalesReq.RowCount--,1)
+		V.Local.iColumn.Set(5)
+		V.Local.fPrevQty.Set(0)
+		F.Intrinsic.Control.For(V.Local.iCnt2,-1,10,1)
+			F.Intrinsic.Control.If(V.Local.iCnt2,=,-1)
+				'Past
+				F.Intrinsic.Math.Sub(V.DataTable.dtSalesReq(V.Local.iCnt).FG!FieldVal,V.DataTable.dtSalesReq(V.Local.iCnt).Past!FieldVal,V.Local.fPrevQty)
+			F.Intrinsic.Control.ElseIf(V.Local.iCnt2,=,10)
+				'Future
+				F.Intrinsic.Math.Sub(V.Local.fPrevQty,V.DataTable.dtSalesReq(V.Local.iCnt).Future!FieldVal,V.Local.fPrevQty)
+			F.Intrinsic.Control.Else
+				'Weeks
+				F.Intrinsic.Math.Sub(V.Local.fPrevQty,V.DataTable.dtSalesReq(V.Local.iCnt).[V.Local.iCnt2]!FieldVal,V.Local.fPrevQty)
+			F.Intrinsic.Control.EndIf
+			'Color Cell
+			F.Intrinsic.Control.If(V.Local.fPrevQty,>=,0)
+				Gui.frmSalesReq.GSGCSalesReq.SetCellAppearance("gvSalesReq",V.Local.iColumn,V.Local.iCnt,"BackColor","LightGreen")
+			F.Intrinsic.Control.Else
+				Gui.frmSalesReq.GSGCSalesReq.SetCellAppearance("gvSalesReq",V.Local.iColumn,V.Local.iCnt,"BackColor","Pink")
+			F.Intrinsic.Control.EndIf
+			Gui.frmSalesReq.GSGCSalesReq.SetCellAppearance("gvSalesReq",V.Local.iColumn,V.Local.iCnt,"Halignment","Far")
+			F.Intrinsic.Math.Add(V.Local.iColumn,1,V.Local.iColumn)
+		F.Intrinsic.Control.Next(V.Local.iCnt2)
+	F.Intrinsic.Control.Next(V.Local.iCnt)
+Program.Sub.SetTotalColors.End
+
+Program.Sub.GSGCSalesReq_RowCellClick.Start
+	F.Intrinsic.Control.SelectCase(V.Args.column)
+		F.Intrinsic.Control.CaseAny("WIP")
+			F.Intrinsic.Control.CallSub(LoadDTActiveJobs,"Part",V.DataTable.dtSalesReq(V.Args.RowIndex).Part!FieldValTrim,"Loc",V.DataTable.dtSalesReq(V.Args.RowIndex).Location!FieldValTrim)
+			Gui.frmActiveJobs..Show
+			F.Intrinsic.Control.CallSub(DeserializeActiveJobs)
+			
+	F.Intrinsic.Control.EndSelect
+Program.Sub.GSGCSalesReq_RowCellClick.End
+
+Program.Sub.SerializeMain.Start
+	V.Local.sSerialize.Declare
+	
+	'gvSalesReq
+	Gui.frmSalesReq.GSGCSalesReq.Serialize("gvSalesReq",V.Local.sSerialize)
+	F.Global.Registry.AddValue(V.Caller.User,V.Caller.CompanyCode,"GVSALESREQ",6226,1000,False,"Serialize",False,0,-999.0,1/1/1980,12:00:00 AM,V.Local.sSerialize)
+Program.Sub.SerializeMain.End
+
+Program.Sub.DeserializeMain.Start
+	V.Local.sSerialize.Declare
+	
+	'gvSalesReq
+	F.Global.Registry.ReadValue(V.Caller.User,V.Caller.CompanyCode,"GVSALESREQ",6226,1000,6,"",V.Local.sSerialize)
+	F.Intrinsic.Control.If(V.Local.sSerialize.Trim,<>,"")
+		Gui.frmSalesReq.GSGCSalesReq.Deserialize(V.Local.sSerialize)
+	F.Intrinsic.Control.EndIf
+Program.Sub.DeserializeMain.End
+
+Program.Sub.frmActiveJobs_UnLoad.Start
+	F.Intrinsic.Control.If(V.Global.bLoadDataActiveJobs)
+		F.Intrinsic.Control.CallSub(SerializeActiveJobs)
+	F.Intrinsic.Control.EndIf
+	
+	Gui.frmActiveJobs..Visible(False)
+Program.Sub.frmActiveJobs_UnLoad.End
+
+Program.Sub.SetContextMenusActiveJobs.Start
+	Gui.frmActiveJobs..ContextMenuCreate("ctxActiveJobs")
+	Gui.frmActiveJobs.GSGCActiveJobs.ContextMenuAttach("ctxActiveJobs")
+	Gui.frmActiveJobs..ContextMenuAddItem("ctxActiveJobs","ResetColumns",0,"Reset Columns")
+	Gui.frmActiveJobs..ContextMenuSetItemEventHandler("ctxActiveJobs","ResetColumns","ResetGridColumns")
+Program.Sub.SetContextMenusActiveJobs.End
+
+Program.Sub.frmActiveJobs_ExportClick.Start
+	V.Local.bExcel.Declare
+	V.Local.sExt.Declare
+	V.Local.sFileExport.Declare
+	V.Local.bFileLocked.Declare
+	V.Local.sMsg.Declare
+	
+	F.Automation.MSExcel.CheckPresence(V.Local.bExcel)
+	F.Intrinsic.Control.If(V.Local.bExcel)
+		V.Local.sExt.Set("xlsx")
+	F.Intrinsic.Control.Else
+		V.Local.sExt.Set("csv")
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.String.Build("{0}GAB_6226_GSGCActiveJobs_Export.{1}",V.Caller.LocalGssTempDir,V.Local.sExt,V.Local.sFileExport)
+	F.Intrinsic.File.IsFileLocked(V.Local.sFileExport,V.Local.bFileLocked)
+	F.Intrinsic.Control.If(V.Local.bFileLocked)
+		F.Intrinsic.String.Build("File is already open. Please close and export again.{0}File: {1}",V.Ambient.NewLine,V.Local.sFileExport,V.Local.sMsg)
+		F.Intrinsic.UI.Msgbox(V.Local.sMsg,"File In Use")
+	F.Intrinsic.Control.Else
+		Gui.frmActiveJobs.GSGCActiveJobs.Export(V.Local.sFileExport,V.Local.sExt)
+		F.Intrinsic.Task.ShellExec(0,"",V.Local.sFileExport,"","",1)
+	F.Intrinsic.Control.EndIf
+Program.Sub.frmActiveJobs_ExportClick.End
+
+Program.Sub.ResetGridColumnsActiveJobs.Start
+	F.Intrinsic.Control.SelectCase(V.Args.MenuName)
+		F.Intrinsic.Control.Case("CTXACTIVEJOBS")
+			F.Global.Registry.AddValue(V.Caller.User,V.Caller.CompanyCode,"GVACTIVEJOBS",6226,2000,False,"Serialize",False,0,-999.0,1/1/1980,12:00:00 AM,"")
+			
+	F.Intrinsic.Control.EndSelect
+	
+	V.Global.bLoadData.Set(False)
+	F.Intrinsic.Control.CallSub(cmdRefresh_ClickActiveJobs)
+Program.Sub.ResetGridColumnsActiveJobs.End
+
+Program.Sub.SetAnchorsActiveJobs.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	' 1- top
+	' 2- Bottom
+	' 4- Left
+	' 8- Right
+
+	Gui.frmActiveJobs.GSGCActiveJobs.Anchor(15)
+	Gui.frmActiveJobs.optView.Anchor(9)
+	Gui.frmActiveJobs.optEdit.Anchor(9)
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.SetAnchorsActiveJobs.End
+
+Program.Sub.LoadDTActiveJobs.Start
+	V.Local.iCnt.Declare
+	V.Local.sFilter.Declare
+	V.Local.sNextMachine.Declare
+	V.Local.sSelect.Declare
+	V.Local.sSQL.Declare
+
+	Gui.frmActiveJobs.lblStatus.Visible(True)
+
+	F.Intrinsic.Control.If(v.DataTable.dtActiveJobs.Exists)
+		F.Data.DataTable.close("dtActiveJobs")
+	F.Intrinsic.Control.EndIf
+	
+	V.Global.bLoadDataActiveJobs.Set(True)
+	
+	'   RRC 120321 (by Mike)
+	'F.Intrinsic.String.Build("Select jh.Job, jh.Suffix, ' ' As Machine, ' ' As Employee, Cast(Null As Date) As Date_Sequence, Part, Description, Qty_Order, Qty_Completed, ' ' As Next_Machine, Date_Due As Due_Date, nts.Notes As Notes From V_Job_Header jh Left Join GAB_6226_JOB_NOTES nts On jh.Job = nts.Job And jh.Suffix = nts.Suffix Where Num_Hours <> 0 And Date_Closed = '1900-01-01' And jh.Job+jh.Suffix Not In (Select Job+Suffix From V_Ind_Lbr_Accts) And jh.Part = '{0}' And jh.Location = '{1}';",V.Args.Part,V.Args.Loc,V.Local.sSQL)
+	F.Intrinsic.String.Build("Select jh.Job, jh.Suffix, ' ' As Machine, ' ' As Employee, Cast(Null As Date) As Date_Sequence, Part, Description, Qty_Order, Qty_Completed, ' ' As Next_Machine, Date_Due As Due_Date, nts.Notes As Notes From V_Job_Header jh Left Join GAB_6226_JOB_NOTES nts On jh.Job = nts.Job And jh.Suffix = nts.Suffix Where (Amt_Material + Amt_Labor + Amt_Overhead ) <> 0 And Date_Closed = '1900-01-01' And jh.Job+jh.Suffix Not In (Select Job+Suffix From V_Ind_Lbr_Accts) And jh.Part = '{0}' And jh.Location = '{1}';",V.Args.Part,V.Args.Loc,V.Local.sSQL)
+	F.Data.DataTable.CreateFromSQL("dtActiveJobs","con",V.Local.sSQL,True)
+	
+	'Get Additional Information
+	F.Data.Datatable.CreateFromSQL("dtAddlInfo","con","Select Job+Suffix As AddlInfoKey, Job, Suffix, Seq, Machine, Empl, Name As Employee, Date_Sequence From V_Job_Detail jd Left Join V_Employee_Mstr em On jd.Empl = em.Employee Where Machine <> '' Order By Date_Sequence Desc;",True)
+	
+	'Add Key Column (JOBSUFFIX)
+	F.Data.Datatable.AddExpressionColumn("dtActiveJobs","ActiveJobsKey",String,"JOB+SUFFIX")
+	
+	'Load Machine
+	F.Data.Dictionary.CreateFromDataTable("dicMachine","dtAddlInfo","AddlInfoKey","Machine")
+	F.Data.Dictionary.SetDefaultReturn("dicMachine","")
+	F.Data.Datatable.FillFromDictionary("dtActiveJobs","dicMachine","ActiveJobsKey","Machine")
+	F.Data.Dictionary.Close("dicMachine")
+	
+	'Load Employee
+	F.Data.Dictionary.CreateFromDataTable("dicEmployee","dtAddlInfo","AddlInfoKey","Employee")
+	F.Data.Dictionary.SetDefaultReturn("dicEmployee","")
+	F.Data.Datatable.FillFromDictionary("dtActiveJobs","dicEmployee","ActiveJobsKey","Employee")
+	F.Data.Dictionary.Close("dicEmployee")
+	
+	'Load Date
+	F.Data.Dictionary.CreateFromDataTable("dicDateSeq","dtAddlInfo","AddlInfoKey","Date_Sequence")
+	F.Data.Dictionary.SetDefaultReturn("dicDateSeq","1/1/1900")
+	F.Data.Datatable.FillFromDictionary("dtActiveJobs","dicDateSeq","ActiveJobsKey","Date_Sequence")
+	F.Data.Dictionary.Close("dicDateSeq")
+	
+	'Close Additional Information
+	F.Data.Datatable.Close("dtAddlInfo")
+	
+	'Add InProcess flag
+	F.Data.Datatable.AddColumn("dtActiveJobs","InProcess",Boolean,False)
+	
+	'Jobs in process
+	F.Data.Datatable.CreateFromSQL("dtInProcess","con","Select * From V_Jobs_In_Process_G;",True)
+	
+	'Get Next Machine Information
+	'   RRC 120321 (by Mike)
+	'F.Data.Datatable.CreateFromSQL("dtNextMachine","con","Select Job+Suffix As NextMachineKey, Job, Suffix, Seq, LMO, RTrim(Part) As Machine, Description, Flag_Closed, Date_Completed, Units_Complete, Units_Scrap From V_Job_Operations Where Seq < '990000' And LMO In ('L') And Flag_Closed <> 'Y' And Task_Seq <> 'T' Order By Job, Suffix, Seq;",True)
+	F.Data.Datatable.CreateFromSQL("dtNextMachine","con","Select Job+Suffix As NextMachineKey, Job, Suffix, Seq, LMO, RTrim(Part) As Machine, Description, Flag_Closed, Date_Completed, Units_Open, Units_Complete, Units_Scrap From V_Job_Operations Where Seq < '990000' And LMO In ('L') And Task_Seq <> 'T' Order By Job, Suffix, Seq;",True)
+	V.Local.iCnt2.Declare
+	V.Local.fQty.Declare
+	V.Local.fPrevQty.Declare
+'	F.Intrinsic.Debug.InvokeDebugger
+'	F.Intrinsic.Debug.Stop
+	'Load Next Machine
+	F.Intrinsic.Control.For(V.Local.iCnt,0,V.DataTable.dtActiveJobs.RowCount--,1)
+		'Set Next Machine
+		
+'   RRC 120321 (by Mike)		
+'		F.Intrinsic.String.Build("NextMachineKey = '{0}{1}'",V.DataTable.dtActiveJobs(V.Local.iCnt).JOB!FieldValTrim,V.DataTable.dtActiveJobs(V.Local.iCnt).SUFFIX!FieldValTrim,V.Local.sFilter)
+'		F.Data.DataView.Create("dtNextMachine","dvNextMachine",22,V.Local.sFilter,"")
+'		F.Intrinsic.Control.For(V.Local.iCnt2,0,V.DataView.dtNextMachine!dvNextMachine.RowCount--,1)
+'			F.Intrinsic.Control.If(V.Local.iCnt2,=,0)
+'				F.Intrinsic.Math.Sub(V.DataTable.dtActiveJobs(V.Local.iCnt).Qty_Order!FieldVal,V.DataView.dtNextMachine!dvNextMachine(V.Local.iCnt2).Units_Complete!FieldVal,V.DataView.dtNextMachine!dvNextMachine(V.Local.iCnt2).Units_Scrap!FieldVal,V.Local.fQty)
+'				F.Intrinsic.String.Build("{0}({1})",V.DataView.dtNextMachine!dvNextMachine(V.Local.iCnt2).Machine!FieldValTrim,V.Local.fQty,V.Local.sNextMachine)
+'				V.Local.fPrevQty.Set(V.DataView.dtNextMachine!dvNextMachine(V.Local.iCnt2).Units_Complete!FieldVal)
+'			F.Intrinsic.Control.Else
+'				F.Intrinsic.Math.Sub(V.Local.fPrevQty,V.DataView.dtNextMachine!dvNextMachine(V.Local.iCnt2).Units_Complete!FieldVal,V.DataView.dtNextMachine!dvNextMachine(V.Local.iCnt2).Units_Scrap!FieldVal,V.Local.fQty)
+'				F.Intrinsic.String.Build("{0},{1}({2})",V.Local.sNextMachine,V.DataView.dtNextMachine!dvNextMachine(V.Local.iCnt2).Machine!FieldValTrim,V.Local.fQty,V.Local.sNextMachine)
+'				V.Local.fPrevQty.Set(V.DataView.dtNextMachine!dvNextMachine(V.Local.iCnt2).Units_Complete!FieldVal)
+'			F.Intrinsic.Control.EndIf
+'		F.Intrinsic.Control.Next(V.Local.iCnt2)
+'		
+'		F.Data.Datatable.SetValue("dtActiveJobs",V.Local.iCnt,"Next_Machine",V.Local.sNextMachine)
+'		F.Data.DataView.Close("dtNextMachine","dvNextMachine")
+'F.Intrinsic.Debug.InvokeDebugger
+'F.Intrinsic.Debug.Stop
+		F.Intrinsic.String.Build("NextMachineKey = '{0}{1}'",V.DataTable.dtActiveJobs(V.Local.iCnt).JOB!FieldValTrim,V.DataTable.dtActiveJobs(V.Local.iCnt).SUFFIX!FieldValTrim,V.Local.sFilter)
+		F.Data.DataView.Create("dtNextMachine","dvNextMachine",22,V.Local.sFilter,"")
+		F.Intrinsic.Control.For(V.Local.iCnt2,0,V.DataView.dtNextMachine!dvNextMachine.RowCount--,1)
+			V.Local.fQty.Set(0)
+			F.Intrinsic.Control.If(V.Local.iCnt2,=,0)
+				F.Intrinsic.Math.Sub(V.DataView.dtNextMachine!dvNextMachine(V.Local.iCnt2).Units_Open!FieldVal,V.DataView.dtNextMachine!dvNextMachine(V.Local.iCnt2).Units_Complete!FieldVal,V.Local.fQty)
+				F.Intrinsic.String.Build("{0}({1})",V.DataView.dtNextMachine!dvNextMachine(V.Local.iCnt2).Machine!FieldValTrim,V.Local.fQty,V.Local.sNextMachine)
+			F.Intrinsic.Control.Else
+				F.Intrinsic.Math.Sub(V.DataView.dtNextMachine!dvNextMachine(V.Local.iCnt2).Units_Open!FieldVal,V.DataView.dtNextMachine!dvNextMachine(V.Local.iCnt2).Units_Complete!FieldVal,V.Local.fQty)
+				F.Intrinsic.String.Build("{0},{1}({2})",V.Local.sNextMachine,V.DataView.dtNextMachine!dvNextMachine(V.Local.iCnt2).Machine!FieldValTrim,V.Local.fQty,V.Local.sNextMachine)
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.Next(V.Local.iCnt2)
+		
+		F.Data.Datatable.SetValue("dtActiveJobs",V.Local.iCnt,"Next_Machine",V.Local.sNextMachine)
+		F.Data.DataView.Close("dtNextMachine","dvNextMachine")
+
+
+'		F.Data.DataView.ToString("dtNextMachine","dvNextMachine","Machine",""," / ",V.Local.sNextMachine)
+'		F.Intrinsic.Control.If(V.Local.sNextMachine,<>,"")
+			'F.Data.Datatable.SetValue("dtActiveJobs",V.Local.iCnt,"Next_Machine",V.Local.sNextMachine)
+'		F.Intrinsic.Control.EndIf
+'		F.Data.DataView.Close("dtNextMachine","dvNextMachine")
+'		V.Local.sNextMachine.Set("")
+'		'Set In Process
+'		F.Intrinsic.String.Build("Job = '{0}' And Suffix = '{1}'",V.DataTable.dtActiveJobs(V.Local.iCnt).JOB!FieldValTrim,V.DataTable.dtActiveJobs(V.Local.iCnt).SUFFIX!FieldValTrim,V.Local.sFilter)
+'		F.Data.Datatable.Select("dtInProcess",V.Local.sFilter,V.Local.sSelect)
+'		F.Intrinsic.Control.If(V.Local.sSelect.IsNotNoReturn)
+'			F.Data.Datatable.SetValue("dtActiveJobs",V.Local.iCnt,"InProcess",True)
+'		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Next(V.Local.iCnt)
+	F.Data.Datatable.Close("dtNextMachine")
+	
+	'Close Jobs In Process
+	F.Data.Datatable.Close("dtInProcess")
+	
+	'Remove Key Column
+	F.Data.Datatable.RemoveColumn("dtActiveJobs","ActiveJobsKey")
+	
+	F.Intrinsic.Control.CallSub(LoadGvActiveJobs)
+	Gui.frmActiveJobs.lblStatus.Visible(False)
+Program.Sub.LoadDTActiveJobs.End
+
+Program.Sub.LoadGvActiveJobs.Start
+	V.Local.sColumn.Declare
+	
+	Gui.frmActiveJobs.GSGCActiveJobs.AddGridViewFromDataTable("gvActiveJobs","dtActiveJobs")
+	Gui.frmActiveJobs.GSGCActiveJobs.SuspendLayout()
+	Gui.frmActiveJobs.GSGCActiveJobs.setGridViewProperty("gvActiveJobs","MultiSelect",True)
+	Gui.frmActiveJobs.GSGCActiveJobs.setGridViewProperty("gvActiveJobs","Editable",True)
+	Gui.frmActiveJobs.GSGCActiveJobs.setGridViewProperty("gvActiveJobs","AllowSort",True)
+	Gui.frmActiveJobs.GSGCActiveJobs.setGridViewProperty("gvActiveJobs","AllowFilter",True)
+	Gui.frmActiveJobs.GSGCActiveJobs.setGridViewProperty("gvActiveJobs","OptionsDetailShowDetailTabs",False)
+	Gui.frmActiveJobs.GSGCActiveJobs.SetGridViewProperty("gvActiveJobs","OptionsViewShowGroupPanel",True)
+	Gui.frmActiveJobs.GSGCActiveJobs.SetGridViewProperty("gvActiveJobs","EnableAppearanceOddRow",True)
+	
+	V.Local.sColumn.Set("Job")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"Visible",True)
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"Caption",V.Local.sColumn)
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"MinWidth","75")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"HeaderHAlignment","Center")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"CellHAlignment","Center")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"CellForeColor","Blue")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"AllowEdit",False)
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"ReadOnly",True)
+	
+	V.Local.sColumn.Set("Suffix")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"Visible",True)
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"Caption",V.Local.sColumn)
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"MinWidth","50")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"HeaderHAlignment","Center")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"CellHAlignment","Center")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"CellForeColor","Blue")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"AllowEdit",False)
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"ReadOnly",True)
+	
+	V.Local.sColumn.Set("Machine")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"Visible",True)
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"Caption",V.Local.sColumn)
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"MinWidth","60")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"HeaderHAlignment","Center")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"CellHAlignment","Center")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"AllowEdit",False)
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"ReadOnly",True)
+	
+	V.Local.sColumn.Set("Employee")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"Visible",True)
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"Caption",V.Local.sColumn)
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"MinWidth","105")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"HeaderHAlignment","Center")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"CellHAlignment","Center")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"AllowEdit",False)
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"ReadOnly",True)
+	
+	V.Local.sColumn.Set("Date_Sequence")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"Visible",True)
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"Caption","Seq. Date")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"MinWidth","85")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"HeaderHAlignment","Center")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"CellHAlignment","Center")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"DisplayCustomDatetime","d")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"AllowEdit",False)
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"ReadOnly",True)
+	
+	V.Local.sColumn.Set("Part")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"Visible",True)
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"Caption",V.Local.sColumn)
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"MinWidth","125")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"HeaderHAlignment","Center")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"CellHAlignment","Left")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"AllowEdit",False)
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"ReadOnly",True)
+	
+	V.Local.sColumn.Set("Description")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"Visible",True)
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"Caption",V.Local.sColumn)
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"MinWidth","175")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"HeaderHAlignment","Center")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"CellHAlignment","Left")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"AllowEdit",False)
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"ReadOnly",True)
+	
+	V.Local.sColumn.Set("Qty_Order")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"Visible",True)
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"Caption","Order Qty")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"MinWidth","85")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"HeaderHAlignment","Center")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"CellHAlignment","Center")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"AllowEdit",False)
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"ReadOnly",True)
+	Gui.frmActiveJobs.GSGCActiveJobs.AddSummaryItem("gvActiveJobs",V.Local.sColumn,V.Local.sColumn,"SUM","","",n2)
+	
+	V.Local.sColumn.Set("Qty_Completed")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"Visible",True)
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"Caption","Compl. Qty.")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"MinWidth","85")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"HeaderHAlignment","Center")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"CellHAlignment","Center")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"AllowEdit",False)
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"ReadOnly",True)
+	Gui.frmActiveJobs.GSGCActiveJobs.AddSummaryItem("gvActiveJobs",V.Local.sColumn,V.Local.sColumn,"SUM","","",n2)
+	
+	V.Local.sColumn.Set("Next_Machine")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"Visible",True)
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"Caption","Remaining Steps")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"MinWidth","250")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"HeaderHAlignment","Center")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"CellHAlignment","Left")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"AllowEdit",False)
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"ReadOnly",True)
+	
+	V.Local.sColumn.Set("Due_Date")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"Visible",True)
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"Caption","Due Date")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"MinWidth","85")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"HeaderHAlignment","Center")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"CellHAlignment","Center")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"DisplayCustomDatetime","d")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"AllowEdit",False)
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"ReadOnly",True)
+	
+	V.Local.sColumn.Set("Notes")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"Visible",True)
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"Caption",V.Local.sColumn)
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"MinWidth","215")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"HeaderHAlignment","Center")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"CellHAlignment","Left")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"CellBackColor","LightYellow")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"AllowEdit",True)
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"ReadOnly",False)
+	
+	V.Local.sColumn.Set("InProcess")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"Visible",False)
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"Caption","IP")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"MinWidth","35")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"HeaderHAlignment","Center")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"CellHAlignment","Center")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"AllowEdit",False)
+	Gui.frmActiveJobs.GSGCActiveJobs.SetColumnProperty("gvActiveJobs",V.Local.sColumn,"ReadOnly",True)
+	
+	Gui.frmActiveJobs.GSGCActiveJobs.AddStyleFormatCondition("gvActiveJobs","InProcess","tagName1","Equal",True)
+	Gui.frmActiveJobs.GSGCActiveJobs.SetStyleFormatConditionProperty("gvActiveJobs","InProcess","tagName1","BackColor","LightGreen")
+	Gui.frmActiveJobs.GSGCActiveJobs.SetStyleFormatConditionProperty("gvActiveJobs","InProcess","tagName1","ApplyToRow",True)
+
+	Gui.frmActiveJobs.GSGCActiveJobs.ResumeLayout()
+	Gui.frmActiveJobs.GSGCActiveJobs.MainView("gvActiveJobs")
+Program.Sub.LoadGvActiveJobs.End
+
+Program.Sub.GSGCActiveJobs_RowCellClick.Start
+	V.Local.sParams.Declare
+
+	F.Intrinsic.Control.SelectCase(v.Args.column)
+		F.Intrinsic.Control.CaseAny("Job","Suffix","JOB","SUFFIX")
+			F.Intrinsic.Control.If(V.Screen.frmActiveJobs!optEdit.Value)
+				F.Intrinsic.String.Build("{0}!*!{1}!*!O",V.DataTable.dtActiveJobs(V.Args.RowIndex).Job!FieldValTrim,V.DataTable.dtActiveJobs(V.Args.RowIndex).Suffix!FieldValTrim,V.Local.sParams)
+				F.Global.General.CallWrapperSync(2009,V.Local.sParams)
+			F.Intrinsic.Control.Else
+				F.Intrinsic.String.Build("7!*!{0}!*!{1}!*!A",V.DataTable.dtActiveJobs(V.Args.RowIndex).Job!FieldValTrim,V.DataTable.dtActiveJobs(V.Args.RowIndex).Suffix!FieldValTrim,V.Local.sParams)
+				F.Global.General.CallWrapperSync(450000,V.Local.sParams)
+			F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndSelect
+Program.Sub.GSGCActiveJobs_RowCellClick.End
+
+Program.Sub.GsGCActiveJobs_CellValueChanged.Start
+	V.Local.sSQL.Declare
+
+	F.Intrinsic.Control.SelectCase(V.Args.Column)
+		F.Intrinsic.Control.CaseAny("Notes","NOTES")
+			F.Intrinsic.String.Build("Select * From GAB_6226_JOB_NOTES Where Job = '{0}' And Suffix = '{1}';",V.DataTable.dtActiveJobs(V.Args.RowIndex).Job!FieldValTrim,V.DataTable.dtActiveJobs(V.Args.RowIndex).Suffix!FieldValTrim,V.Local.sSQL)
+			F.ODBC.Connection!con.OpenRecordsetRW("rstNotes",V.Local.sSQL)
+			F.Intrinsic.Control.If(V.ODBC.con!rstNotes.EOF)
+				F.Intrinsic.String.Build("INSERT INTO GAB_6226_JOB_NOTES(JOB,SUFFIX,NOTES) VALUES('{0}','{1}','{2}');",V.DataTable.dtActiveJobs(V.Args.RowIndex).Job!FieldValTrim,V.DataTable.dtActiveJobs(V.Args.RowIndex).Suffix!FieldValTrim,V.Args.Value.PSQLFriendly,V.Local.sSQL)
+				F.ODBC.Connection!con.Execute(V.Local.sSQL)
+			F.Intrinsic.Control.Else
+				F.Intrinsic.String.Build("UPDATE GAB_6226_JOB_NOTES SET NOTES = '{0}' WHERE JOB = '{1}' AND SUFFIX = '{2}';",V.Args.Value.PSQLFriendly,V.DataTable.dtActiveJobs(V.Args.RowIndex).Job!FieldValTrim,V.DataTable.dtActiveJobs(V.Args.RowIndex).Suffix!FieldValTrim,V.Local.sSQL)
+				F.ODBC.Connection!con.Execute(V.Local.sSQL)
+			F.Intrinsic.Control.EndIf
+			F.ODBC.con!rstNotes.Close
+	F.Intrinsic.Control.EndSelect
+Program.Sub.GsGCActiveJobs_CellValueChanged.End
+
+Program.Sub.SerializeActiveJobs.Start
+	V.Local.sSerialize.Declare
+	
+	'gvActiveJobs
+	Gui.frmActiveJobs.GSGCActiveJobs.Serialize("gvActiveJobs",V.Local.sSerialize)
+	F.Global.Registry.AddValue(V.Caller.User,V.Caller.CompanyCode,"GVACTIVEJOBS",6226,2000,False,"Serialize",False,0,-999.0,1/1/1980,12:00:00 AM,V.Local.sSerialize)
+Program.Sub.SerializeActiveJobs.End
+
+Program.Sub.DeserializeActiveJobs.Start
+	V.Local.sSerialize.Declare
+	
+	'gvActiveJobs
+	F.Global.Registry.ReadValue(V.Caller.User,V.Caller.CompanyCode,"GVACTIVEJOBS",6226,2000,6,"",V.Local.sSerialize)
+	F.Intrinsic.Control.If(V.Local.sSerialize.Trim,<>,"")
+		Gui.frmActiveJobs.GSGCActiveJobs.Deserialize(V.Local.sSerialize)
+	F.Intrinsic.Control.EndIf
+Program.Sub.DeserializeActiveJobs.End
+
+Program.Sub.CheckSetColorsOpt.Start
+	V.Local.bSetColors.Declare
+	
+	F.Global.Registry.ReadValue(V.Caller.User,V.Caller.CompanyCode,"SetColors",6226,0500,0,"",V.Local.bSetColors)
+	Gui.frmSalesReq.chkSetColors.Value(V.Local.bSetColors)
+Program.Sub.CheckSetColorsOpt.End
+
+Program.Sub.chkSetColors_Click.Start
+	V.Local.bSetColors.Declare
+	
+	F.Intrinsic.Control.If(V.Screen.frmSalesReq!chkSetColors.Value,=,1)
+		V.Local.bSetColors.Set(True)
+	F.Intrinsic.Control.EndIf
+	
+	F.Global.Registry.AddValue(V.Caller.User,V.Caller.CompanyCode,"SetColors",6226,0500,False,"SetColors",V.Local.bSetColors,0,-999.0,1/1/1980,12:00:00 AM,"")
+Program.Sub.chkSetColors_Click.End
+
+Program.Sub.Comments.Start
+${$5$}$3.0.0.0$}$1
+${$6$}$rrodriguez$}$20211203095018754$}$YnvOFTUOxTrnxbSzMvfBmnrP7dtKqN6ZKEdpzIv886otOIG2bXoRCwxcqNAwv+SoYja461pd9Kb08DkE9SRenQ==
+Program.Sub.Comments.End
